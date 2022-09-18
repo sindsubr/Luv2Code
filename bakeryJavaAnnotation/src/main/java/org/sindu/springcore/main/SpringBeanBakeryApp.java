@@ -8,7 +8,7 @@ public class SpringBeanBakeryApp {
 
 	public static void main(String[] args) {
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
-		Cake cake = context.getBean("butterscotchCake", Cake.class);
+		Cake cake = context.getBean("cake", Cake.class);
 		cake.bake();
 		context.close();
 		

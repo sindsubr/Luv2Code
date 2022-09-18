@@ -8,8 +8,8 @@ public class SpringBeanScopeLifecycleApp {
 
 	public static void main(String[] args) {
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
-		Cake butterscotchCake = context.getBean("butterscotchCake", Cake.class);
-		Cake butterscotchCakePrototype = context.getBean("butterscotchCake", Cake.class);
+		Cake butterscotchCake = context.getBean("cake", Cake.class);
+		Cake butterscotchCakePrototype = context.getBean("cake", Cake.class);
 		butterscotchCake.getFlavor();
 		butterscotchCake.bake();
 

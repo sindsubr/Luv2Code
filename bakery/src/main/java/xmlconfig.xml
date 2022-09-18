@@ -30,6 +30,9 @@
 		<constructor-arg name="printQuotes"
 			value="${printQuote}"></constructor-arg>
 	</bean>
+	<bean id="chocolate"
+		class="org.sindu.springcore.bakery.Chocolate">
+	</bean>
 	<bean id="butterscotchCake"
 		class="org.sindu.springcore.bakery.Cake" init-method="init"
 		destroy-method="destroy">

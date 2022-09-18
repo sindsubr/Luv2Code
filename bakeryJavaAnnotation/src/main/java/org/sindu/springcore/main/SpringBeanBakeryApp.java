@@ -11,6 +11,7 @@ public class SpringBeanBakeryApp {
 		Cake cake = context.getBean("butterscotchCake", Cake.class);
 		cake.bake();
 		context.close();
+		
 	}
 
 }

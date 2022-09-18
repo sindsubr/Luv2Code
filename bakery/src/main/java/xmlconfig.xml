@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:property-placeholder
+		location="classpath:theme.properties" />
+
+	<!-- Logger Bean definition -->
+	<bean id="myLoggerConfig"
+		class="org.sindu.springcore.bakery.Logger.MyLoggerConfig"
+		init-method="initLogger">
+		<property name="rootLoggerLevel" value="FINE"></property>
+		<property name="printedLoggerLevel" value="FINE"></property>
+	</bean>
+
+	<!-- bean definitions here -->
+	<bean id="cake" class="org.sindu.springcore.bakery.Cake"
+		scope="prototype" init-method="init" destroy-method="destroy"></bean>
+
+	<!-- bean definitions for dependency injection here -->
+	<bean id="butterscotch"
+		class="org.sindu.springcore.bakery.Butterscotch">
+		<constructor-arg name="theme" value="${theme}"></constructor-arg>
+		<constructor-arg name="color" value="${color}"></constructor-arg>
+		<constructor-arg name="printQuotes"
+			value="${printQuote}"></constructor-arg>
+	</bean>
+	<bean id="butterscotchCake"
+		class="org.sindu.springcore.bakery.Cake" init-method="init"
+		destroy-method="destroy">
+		<property name="flavors" ref="butterscotch"></property>
+	</bean>
+
+</beans>

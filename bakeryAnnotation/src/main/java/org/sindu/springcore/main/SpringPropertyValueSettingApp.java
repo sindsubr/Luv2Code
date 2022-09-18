@@ -7,7 +7,7 @@ public class SpringPropertyValueSettingApp {
 
 	public static void main(String[] args) {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("xmlconfig.xml");
-		Cake cake = context.getBean("butterscotchCake", Cake.class);
+		Cake cake = context.getBean("cake", Cake.class);
 		cake.getFlavor();
 		cake.bake();
 		context.close();

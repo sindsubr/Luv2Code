@@ -7,7 +7,7 @@ public class SpringBeanBakeryApp {
 
 	public static void main(String[] args) {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("xmlconfig.xml");
-		Cake cake = context.getBean("butterscotchCake", Cake.class);
+		Cake cake = context.getBean("cake", Cake.class);
 		cake.bake();
 		context.close();
 	}

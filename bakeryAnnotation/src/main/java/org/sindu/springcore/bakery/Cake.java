@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-@Component("butterscotchCake")
+@Component("cake")
 @Scope("prototype")
 public class Cake implements BakeryCook {
 

@@ -1,5 +1,4 @@
-<beans
-	xmlns="http://www.springframework.org/schema/beans"
+<beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
@@ -11,24 +10,29 @@
 	<!-- Step 3: Add support for component scanning -->
 	<context:component-scan base-package="org.sindu"></context:component-scan>
 	<!-- Step 4: Add support for conversion, formatting and validation support -->
-	<mvc:annotation-driven />
+	<mvc:annotation-driven/>
 	<!-- Step 5: Define Spring MVC view resolver -->
-	<bean
-		id="internalResourceViewResolver"
+	<bean id="internalResourceViewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property
-			name="prefix"
-			value="/WEB-INF/view/"></property>
-		<property
-			name="suffix"
-			value=".jsp"></property>
+		<property name="prefix" value="/WEB-INF/view/"></property>
+		<property name="suffix" value=".jsp"></property>
 	</bean>
 
-	<mvc:resources
-		mapping="/resources/**"
-		location="/resources/"></mvc:resources>
-	<util:properties
-		id="yearsOfExpOptions"
+	<!-- For mapping image,js,css(external) file resources -->
+	<!-- Folder path: resources/files -->
+	<mvc:resources mapping="/resources/**"
+		location="WebContext(or)DeployedResources/resources/"></mvc:resources>
+		
+	<!-- For loading dropdownlist from properties file -->
+	<!-- Folder path: WEB-INF/filename.properties -->		
+	<util:properties id="yearsOfExpOptions"
 		location="classpath:../yearsOfExp.properties" />
+		
+	<!-- Create bean for handling exception and load custom error messages in view -->
+	<!-- Package path: src/filename.properties -->
+	<bean id = "messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+	<property name="basenames" value="resources/message"></property>
+	</bean>
+	
 </beans>
 

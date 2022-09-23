@@ -15,6 +15,8 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.sindu.customvalidation.CourseCode;
+import org.sindu.customvalidation.ImageFileCheck;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 public class Student {
 
@@ -43,6 +45,8 @@ public class Student {
 
 	private List<String> courseList;
 	private Map<String, String> genderMap;
+	@ImageFileCheck
+	private CommonsMultipartFile profilePic;
 
 	public Student() {
 		courseList = new ArrayList<>();
@@ -150,6 +154,14 @@ public class Student {
 
 	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
+	}
+
+	public CommonsMultipartFile getProfilePic() {
+		return profilePic;
+	}
+
+	public void setProfilePic(CommonsMultipartFile profilePic) {
+		this.profilePic = profilePic;
 	}
 
 }

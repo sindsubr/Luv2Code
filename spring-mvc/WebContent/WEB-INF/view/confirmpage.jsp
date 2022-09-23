@@ -9,6 +9,7 @@
 </head>
 <body>
 <h2>Student Details</h2>
+	<img src="${profilePicPath}" height="100" width="100"><br><br>
 	<b>Name: </b>${studentModel.firstName} ${studentModel.lastName}<br><br>
 	<b>Country: </b>${studentModel.country}<br><br> 
 	<b>Course: </b>${studentModel.course}<br><br>
@@ -23,5 +24,6 @@
 	<b>Free passes:</b>${studentModel.freePasses}<br><br>
 	<b>Email:</b>${studentModel.email}<br><br>
 	<b>CourseCode:</b>${studentModel.courseCode}<br><br>
+	
 </body>
 </html>

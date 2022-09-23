@@ -19,20 +19,26 @@
 	</bean>
 
 	<!-- For mapping image,js,css(external) file resources -->
-	<!-- Folder path: resources/files -->
+	<!-- Folder path: resources/files location:WebContext/WebApp -->
 	<mvc:resources mapping="/resources/**"
-		location="WebContext(or)DeployedResources/resources/"></mvc:resources>
+		location="/resources/"></mvc:resources>
 		
 	<!-- For loading dropdownlist from properties file -->
 	<!-- Folder path: WEB-INF/filename.properties -->		
 	<util:properties id="yearsOfExpOptions"
 		location="classpath:../yearsOfExp.properties" />
 		
+		<util:properties id="userPath"
+		location="classpath:../user_path.properties" />
+		
 	<!-- Create bean for handling exception and load custom error messages in view -->
 	<!-- Package path: src/filename.properties -->
 	<bean id = "messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
 	<property name="basenames" value="resources/message"></property>
 	</bean>
+	<!-- Enable File Upload Functionality -->
+	<bean id="multipartResolver"
+	class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />  
 	
 </beans>
 

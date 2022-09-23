@@ -16,7 +16,8 @@
 	</h2>
 	<br>
 	<br>
-	<form:form action="submitForm" modelAttribute="studentModel">
+	<form:form action="submitForm" modelAttribute="studentModel"
+		enctype="multipart/form-data" method="post">
 First Name (*): <form:input path="firstName" />
 		<form:errors path="firstName" cssClass="errorcss" />
 		<br>
@@ -89,7 +90,9 @@ Birthday:
 		<form:errors path="birthday" cssClass="errorcss" />
 		<br>
 		<br>
-		<input type="submit" />
+Select profile Picture: <form:input type="file" path="profilePic" />
+<form:errors path="profilePic" cssClass="errorcss"/>
+		<input type="submit" value="Submit" />
 	</form:form>
 
 </body>

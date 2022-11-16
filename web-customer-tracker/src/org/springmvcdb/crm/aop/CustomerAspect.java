@@ -17,8 +17,8 @@ public class CustomerAspect {
 
 	private Logger logger = Logger.getLogger(getClass().getName());
 
-	public final String ACCOUNT_SID = "AC34c932143e68ce27dca996ac5b370e52";
-	public final String AUTH_TOKEN = "0f4abdd23ef8c6861e10475dde05ae4e";
+	public final String ACCOUNT_SID = "";
+	public final String AUTH_TOKEN = "";
 
 	@Before("execution(* org.springmvcdb.crm.service.CustomerServiceImpl.deleteCustomer(int))")
 	public void deleteCustomerAdvice(JoinPoint joinPoint) {

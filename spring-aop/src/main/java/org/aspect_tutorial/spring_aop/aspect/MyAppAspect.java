@@ -10,17 +10,15 @@ import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
-import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
-@Order(1)
 public class MyAppAspect {
 
 	private Logger myLogger = Logger.getLogger(getClass().getName());
 
-	@Before("execution(void my*())")
+	@Before("execution(public void *(boolean,..))")
 	public void myAppBeforeAdvice(JoinPoint joinPoint) {
 		myLogger.info("<<-------@Before advice aspect invoked..!--------->>");
 		myLogger.warning("Method:" + joinPoint.getSignature().toShortString());
